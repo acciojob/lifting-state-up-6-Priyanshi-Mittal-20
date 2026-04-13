@@ -7,7 +7,7 @@ const Parent=()=>{
   const [todos,setTodos]=useState(["Learn React", "Build a React app", "Deploy the React app"])
   function handleComplete(todo)
   {
-    setTodos(todos.filter(value=>value!==todo))
+    setTodos((prev)=>prev.filter(value=>value!==todo))
   }
   return(
     <div>
