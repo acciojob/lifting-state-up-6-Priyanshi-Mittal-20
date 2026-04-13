@@ -1,28 +1,30 @@
 import React from "react";
-import { useState } from "react";
 
-
-const Lift6=({todos, setTodos, handleComplete})=>{
-  
+const Lift6 = ({ todos, handleComplete }) => {
   return (
     <div>
       <h2>Child Component</h2>
       <ul>
-        {todos.map((list,index)=>{
-          return(
-            <>
-          <li key={index}>{list}
-          <button onClick={()=>{handleComplete(list)}}>Complete</button>
+        {todos.map((todo, index) => (
+          <li key={index}>
+            <span
+              // style={{
+              //   textDecoration: todo.completed ? "line-through" : "none"
+              // }}
+            >
+              {todo.text}
+            </span>
+
+            {!todo.completed && (
+              <button onClick={() => handleComplete(todo.text)}>
+                Complete
+              </button>
+            )}
           </li>
-          <br/>
-          </>
-          )
-     } )}
-     </ul>
+        ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
 
-
-
-export default Lift6
+export default Lift6;
