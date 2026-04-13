@@ -8,10 +8,10 @@ const Lift6=({todos, setTodos, handleComplete})=>{
     <div>
       <h2>Child Component</h2>
       <ul>
-        {todos.map(list=>{
+        {todos.map((list,index)=>{
           return(
             <>
-          <li>{list}
+          <li key={index}>{list}
           <button onClick={()=>{handleComplete(list)}}>Complete</button>
           </li>
           <br/>
