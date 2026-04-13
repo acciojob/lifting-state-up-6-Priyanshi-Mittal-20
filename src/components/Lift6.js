@@ -3,26 +3,24 @@ import React from "react";
 const Lift6 = ({ todos, handleComplete }) => {
   return (
     <div>
-      <h2>Child Component</h2>
-      <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>
-            <span
-              // style={{
-              //   textDecoration: todo.completed ? "line-through" : "none"
-              // }}
-            >
-              {todo.text}
-            </span>
+    <h2>Child Component</h2>
+    <ul>
+      {todos.map((todo, index) => (
+        <li key={index}>
+          {todo.text}
 
-            {!todo.completed && (
-              <button onClick={() => handleComplete(todo.text)}>
-                Complete
-              </button>
-            )}
-          </li>
-        ))}
-      </ul>
+          {/* 👇 THIS LINE IS THE KEY */}
+          {!todo.completed && (
+            <button
+              data-testid="complete-btn"
+              onClick={() => handleComplete(todo.text)}
+            >
+              Complete
+            </button>
+          )}
+        </li>
+      ))}
+    </ul>
     </div>
   );
 };
